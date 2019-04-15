@@ -31,5 +31,8 @@ Keras implementation of face antispoofing based on single RGB images.
 * The default strategy is: for continuous 30 frames, if the model detects morn than 15 genuine frames, it outputs True.
 * The codes are incomplete, i will keep working on it.
 
+## Visualization
+![left true / right false](https://github.com/LCorleone/Face-antispoofing/gif/softmax.gif)
+
 ## Reference
-* To add.
+* To be added.
