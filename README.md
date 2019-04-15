@@ -32,7 +32,7 @@ Keras implementation of face antispoofing based on single RGB images.
 * The codes are incomplete, i will keep working on it.
 
 ## Visualization
-![left true / right false](https://github.com/LCorleone/Face-antispoofing/gif/softmax.gif)
+![left true / right false](https://github.com/LCorleone/Face-antispoofing/tree/master/gif/GIF.gif)
 
 ## Reference
 * To be added.
