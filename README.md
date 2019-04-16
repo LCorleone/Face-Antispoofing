@@ -32,8 +32,5 @@ Keras implementation of face antispoofing based on single RGB images.
 * **About threshold** For videos captured by iphone, the prediction (score) of genuine face is about 10-4 while the prediction of fake face jumps from 0.1 to 0.99, so i set the threshold at 0.001. The camera may have some effects on the threshold. Thus, print the prediction and feel free to adjust it! However, if the prediction for genuine face changes dramaticly, maybe the model is useless. 
 * The codes are incomplete, i will keep working on it. If you have some problems, make a issue!
 
-## Visualization
-![left true / right false](https://github.com/LCorleone/Face-antispoofing/tree/master/gif/GIF.gif)
-
 ## Reference
 * To be added.
