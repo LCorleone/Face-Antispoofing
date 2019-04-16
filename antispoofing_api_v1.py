@@ -71,12 +71,14 @@ class AntiSpoofing(object):
         bounding_boxes, points = detect_face.detect_face(
             img, self.MTCNN_params['minsize'], self.pnet, self.rnet, self.onet, self.MTCNN_params['threshold'], self.MTCNN_params['factor'])
         nrof_faces = bounding_boxes.shape[0]
+        face_detected_flag = False
         if nrof_faces >= 1:
             for index, bbox in enumerate(bounding_boxes):
                 score = bbox[-1]
                 bbox = bbox[0: 4]
                 landmark = points[:, index].reshape((2, 5)).T
             if score > 0.8:
+                face_detected_flag = True
                 # print(bbox[3] - bbox[1], bbox[2] - bbox[0])
                 warped = face_preprocess.preprocess(
                     img, bbox=bbox, landmark=landmark, image_size=(112, 112))
@@ -98,12 +100,13 @@ class AntiSpoofing(object):
         else:
             self.pop_queue(0)
 
-        if self.get_result():
-            draw_box(img_bgr, [bbox[0], bbox[1], bbox[2],
-                               bbox[3]], color=[127, 255, 0])
-        else:
-            draw_box(img_bgr, [bbox[0], bbox[1], bbox[2],
-                               bbox[3]], color=[0, 0, 255])
+        if face_detected_flag:
+            if self.get_result():
+                draw_box(img_bgr, [bbox[0], bbox[1], bbox[2],
+                                   bbox[3]], color=[127, 255, 0])
+            else:
+                draw_box(img_bgr, [bbox[0], bbox[1], bbox[2],
+                                   bbox[3]], color=[0, 0, 255])
         return img_bgr
 
     def pop_queue(self, k):
