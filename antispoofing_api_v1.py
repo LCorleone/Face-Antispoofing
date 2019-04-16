@@ -148,6 +148,8 @@ if __name__ == '__main__':
         img2save = anti_obj.despoof(img_bgr)
         if frame_count >= 30:
             video_writer.write(img2save.astype(np.uint8))
-        result = anti_obj.get_result()
-        print(frame_count, result)
+            result = anti_obj.get_result()
+            print(frame_count, result)
+        else:
+            print('None')
 
